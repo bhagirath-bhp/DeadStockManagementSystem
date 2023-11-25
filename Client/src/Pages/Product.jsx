@@ -1,9 +1,20 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { firestore } from '../Firebase/utils';
 
-const Product = ({ data }) => {
+const Product = async ({ data }) => {
   let { state } = useLocation();
-  console.log("This is state", state)
+  console.log("This is state", state.pid)
+  await firestore.collection("product").get().then(snapshot => {
+    for (let doc of snapshot.docs) {
+      if (doc.data().pid === state.pid) {
+        console.log(doc.data())
+      }
+    }
+  }).catch(err => {
+    console.log(err);
+  })
+
   return (
     <div>
       <h2>Table 1</h2>
