@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
+import { useNavigate } from 'react-router-dom';
+
 
 const Test = (props) => {
+  const navigate = useNavigate();
   const [data, setData] = useState('No result');
 
   return (
@@ -10,6 +13,7 @@ const Test = (props) => {
         onResult={(result, error) => {
           if (!!result) {
             setData(result?.text);
+            navigate('/product', { state: { pid: result?.text } })
           }
 
           if (!!error) {

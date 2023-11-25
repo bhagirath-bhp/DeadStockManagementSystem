@@ -9,6 +9,8 @@ import DeadStock from './Pages/DeadStock';
 import HomePage from './Pages/HomePage';
 import AboutUs from './Pages/AboutUs';
 import Test from './Pages/QR_Reader';
+import SignIn from './SignIn';
+import Product from './Pages/Product';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path='/' element = { <HomePage /> }/>
       <Route path='/about' element = {<AboutUs />}/>
       <Route path='/readqr' element = {<Test />}/>
+      <Route path='/signin' element = {<SignIn />}/>
+      <Route path='/product' element = {<Product />}/>
      </Routes>
    </BrowserRouter>
   );
